@@ -8,7 +8,7 @@ const route = require('./route/posts.js');
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
-app.use("/", route);
+app.use("/api", route);
 
 const PORT = process.env.PORT || 5000;
 
