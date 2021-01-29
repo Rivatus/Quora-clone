@@ -11,3 +11,7 @@ const questionSchema = mongoose.Schema({
     userId: [String],
     answersId =[String]
 });
+
+const questions = mongoose.model("Question", questionSchema);
+
+module.exports = questions;
