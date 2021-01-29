@@ -7,8 +7,8 @@ const question = {
     description: "I don't know my name.",
     postedBy: "Me",
     date: new Date(),
-    tags =["Name", "Jyotish"],
-    answersId =[]
+    tags: ["Name", "Jyotish"],
+    answersId: []
 };
 
 export const askquestion = () => axios.post(url, question);
