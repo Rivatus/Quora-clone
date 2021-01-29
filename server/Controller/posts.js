@@ -6,12 +6,11 @@ const getPosts = (req, res) => {
 }
 
 const postQuestion = async (req, res) => {
-    const question = req.body;
+    const data = req.body;
 
-    const newQuestion = new questions(question);
+    const newQuestion = new question(data);
     try {
         await newQuestion.save();
-
         res.status(200).json(newQuestion);
     } catch (error) {
         res.status(404).json({ message: error });

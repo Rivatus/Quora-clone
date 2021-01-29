@@ -12,6 +12,6 @@ const questionSchema = mongoose.Schema({
     answersId: [String]
 });
 
-const questions = mongoose.model("questions", questionSchema);
+const question = mongoose.model("questions", questionSchema);
 
-module.exports = questions;
+module.exports = question;
