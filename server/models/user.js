@@ -11,7 +11,7 @@ const userSchema = new Schema({
     twitter:String,
     facebook:String,
     answers:[String],
-    questionss:[String],
+    questions:[String],
     description:String
 });
 
