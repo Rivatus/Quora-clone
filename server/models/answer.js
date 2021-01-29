@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 // Schema
 const Schema = mongoose.Schema;
 const answerSchema = new Schema({
-    UserId:String,
-    Question:String,
-    Description:String,
-    Date: {
+    userId:String,
+    question:String,
+    description:String,
+    date: {
         type: Date,
         default: new Date()
     }

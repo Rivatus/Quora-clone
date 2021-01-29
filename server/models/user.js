@@ -4,12 +4,15 @@ const mongoose = require('mongoose');
 // Schema
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-    Question:String,
-    Description:String,
-    Date: {
-        type: Date,
-        default: new Date()
-    }
+    name:String,
+    email:String,
+    photo:String,
+    linkedIn:String,
+    twitter:String,
+    facebook:String,
+    answers:[String],
+    questionss:[String],
+    description:String
 });
 
 // Model
