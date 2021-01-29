@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const questions = require('../models/question.js');
+const question = require('../models/question.js');
 
 const getPosts = (req, res) => {
     res.send("Hello World!");
@@ -7,7 +7,6 @@ const getPosts = (req, res) => {
 
 const postQuestion = async (req, res) => {
     const data = req.body;
-
     const newQuestion = new question(data);
     try {
         await newQuestion.save();
