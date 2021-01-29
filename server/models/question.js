@@ -9,7 +9,7 @@ const questionSchema = mongoose.Schema({
     },
     tags: [String],
     userId: [String],
-    answersId =[String]
+    answersId: [String]
 });
 
 const questions = mongoose.model("questions", questionSchema);
