@@ -7,6 +7,9 @@
     color:white!important;
     margin:2px;
 }
+.navbar-nav{
+    width:100%;
+}
 .dashBoard-icon{
     align-self:left;
     margin-right:auto;
