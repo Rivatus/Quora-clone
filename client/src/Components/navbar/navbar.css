@@ -1,3 +1,14 @@
 #Navbar{
     background-color: #B92B27;
+    
+    border: 1px solid;
+}
+.nav-item{
+    color:white!important;
+    margin:2px;
+}
+.dashBoard-icon{
+    align-self:left;
+    margin-right:auto;
+    margin-left:0;
 }

@@ -18,10 +18,10 @@ function login_logout()
 }
 function navbar() {
     return (
-        <div id="Navbar">
-            <nav className="navbar navbar-expand-lg navbar-dark">
+        <div id="Navbar" className="bg-danger">
+            <nav className="navbar navbar-expand-lg">
                 <button
-                    className="navbar-toggler btne"
+                    className="navbar-toggler btn"
                     type="button"
                     data-toggle="collapse"
                     data-target="#navbarNav"
@@ -29,14 +29,12 @@ function navbar() {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <span className="navbar-toggler-icon bt"></span>
+                    <span className="navbar-toggler-icon btn"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto ds">  
-                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                            <a href="#Subsidiaries" className="nm">
-                               DashBoard
-                            </a> 
+                        <li className="nav-item dashBoard-icon" data-toggle="collapse" data-target=".navbar-collapse.show">
+                            DashBoard
                         </li>  
                         <li>
                             <input type="text"
@@ -45,20 +43,14 @@ function navbar() {
                                 label="Subject"
                             />
                         </li>
-                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">                     
-                            <a href="#About" className="nm">
-                                Home
-                            </a>
+                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">         
+                            Home
                         </li>
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                            <a href="#Products" className="nm">
-                                Ask?
-                            </a>
+                            Ask?
                         </li>  
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"> 
-                            <a href="#Testimonials" className="nm">
-                                Login
-                            </a>
+                            Login
                         </li>                                             
                     </ul>
                 </div>
