@@ -36,7 +36,7 @@ function navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto ds">                           
-                        <li>
+                        <li className="navbar-search">
                             <input type="text"
                                 className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                                 placeholder="Search" 
