@@ -1,5 +1,5 @@
 import './App.css';
-import AskForm from './Components/ask.js';
+import AskForm from './Components/ask/ask.js';
 
 function App() {
   return (

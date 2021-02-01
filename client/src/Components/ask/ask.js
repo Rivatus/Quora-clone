@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { askQuestion } from '../actions/index.js';
+import { askQuestion } from '../../actions/index.js';
 
 const AskForm = () => {
 
@@ -11,8 +11,11 @@ const AskForm = () => {
         dispatch(askQuestion());
     }
 
-    return <form onSubmit={handleSubmit}>
-        <button>Submit</button>
+    return <form>
+        <div class="form-group">
+            <label>Question</label>
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
     </form>
 }
 
