@@ -8,7 +8,8 @@ const AskForm = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(askQuestion());
+        //dispatch(askQuestion());
+        askQuestion()(dispatch);
     }
 
     return <form onSubmit={handleSubmit}>

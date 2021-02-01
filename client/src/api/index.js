@@ -11,4 +11,4 @@ const question = {
     answersId: []
 };
 
-export const askquestion = () => axios.post(url, question);
+export const askquestion = () => axios.post(`${url}/question`, question);
