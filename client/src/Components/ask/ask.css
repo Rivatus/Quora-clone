@@ -3,6 +3,10 @@
     max-width:1300px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
+    padding:5px;
+    text-align: left;
+    margin-top:50px;
 }
 
 .Askform label{
@@ -11,7 +15,9 @@
     font-style:  sans-serif;
 }
 
-.Askform .askFormButton {
+.askFormButton {
     margin-left: 50%;
-    border: 1px solid black;
+}
+.form-group label{
+  text-align: left;
 }

@@ -3,11 +3,9 @@ import AskForm from './Components/ask/ask.js';
 import Navbar from './Components/navbar/navbar.js'
 function App() {
   return (
-    <div>
-      <header>
+    <div className="App">
         <Navbar/>
         <AskForm />
-      </header>
     </div>
   );
 }
