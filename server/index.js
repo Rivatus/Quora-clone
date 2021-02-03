@@ -1,13 +1,13 @@
 express = require('express');
 bodyParser = require('body-parser');
 mongoose = require('mongoose');
-
+const cors = require('cors');
 const app = express();
 
 const route = require('./route/posts.js');
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
-
+app.use(cors());
 app.use("/api", route);
 
 const PORT = process.env.PORT || 5000;

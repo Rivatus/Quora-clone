@@ -11,7 +11,9 @@ const AskForm = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(askQuestion(data));
+        const t={heading:data.heading,description:data.description,tags:[data.tags],postedBy:data.postedBy};
+        console.log(t);
+        dispatch(askQuestion(t));
     }
 
     return <div className="Askform shadow-lg">
@@ -28,7 +30,7 @@ const AskForm = () => {
                 <label>Tags</label>
                 <textarea value={data.tags} className="form-control" rows="2" onChange={(e) => { changeData({ ...data, tags: e.target.value }); }} placeholder="Add tags to your question" ></textarea>
             </div>
-            <button type="button" className="btn btn-danger askFormButton" >Ask</button>
+            <button type="submit" className="btn btn-danger askFormButton" >Ask</button>
         </form>
     </div>
 }
