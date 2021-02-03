@@ -11,7 +11,7 @@ const AskForm = () => {
         dispatch(askQuestion());
     }
 
-    return <div className="Askform">
+    return <div className="Askform shadow-lg">
         <form onSubmit={handleSubmit} >
             <div className="form-group" >
                 <label>Question</label>

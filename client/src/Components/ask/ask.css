@@ -4,15 +4,16 @@
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    padding:5px;
+    padding:15px;
     text-align: left;
-    margin-top:50px;
+    margin-top:60px;
 }
 
 .Askform label{
     font-weight: 700;
     font-size: 25px;
     font-style:  sans-serif;
+    margin-left:5px;
 }
 
 .askFormButton {
