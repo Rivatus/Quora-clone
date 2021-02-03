@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { askQuestion } from '../../actions/index.js';
 import './ask.css';
+
+
+const question = {
+    heading: "What is my name?",
+    description: "I don't know my name.",
+    postedBy: "Me",
+    date: new Date(),
+    tags: ["Name", "Jyotish"],
+    answersId: []
+};
+
 const AskForm = () => {
+    const [data, changeData] = useState({ heading = '', description: '', tags: '', postedBy: "admin" });
 
     const dispatch = useDispatch();
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(askQuestion());
+        dispatch(askQuestion(data));
     }
 
     return <div className="Askform shadow-lg">
