@@ -7,6 +7,6 @@ export const askQuestion = (question) => async (dispatch) => {
         dispatch({ type: "Ask",payload:data});
     } catch (error) {
         console.log(error);
-        dispatch({ type: "Failure" });
+        dispatch({ type: "Ask",payload:2 });
     }
 }
