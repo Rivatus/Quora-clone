@@ -13,7 +13,9 @@ const AskForm = () => {
         e.preventDefault();
         const t = { heading: data.heading, description: data.description, tags: [data.tags], postedBy: data.postedBy };
         console.log(t);
+        console.log(status);
         dispatch(askQuestion(t));
+        console.log("bi");
     }
 
     const status = useSelector((state) => state.message.status);
@@ -32,8 +34,9 @@ const AskForm = () => {
                 <label>Tags</label>
                 <textarea value={data.tags} className="form-control" rows="2" onChange={(e) => { changeData({ ...data, tags: e.target.value }); }} placeholder="Add tags to your question" ></textarea>
             </div>
+            {status}
             <button type="submit" className="btn btn-danger askFormButton" >Ask</button>
-            <div className="relative w-full mb-3 mt-8" style={{ display: `${status == 1 ? 'block' : 'none'}` }}>
+            <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 2 ? 'block' : 'none'}` }}>
                 <div class="alert alert-danger" role="alert">
                     Some error was encountered!
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -41,7 +44,7 @@ const AskForm = () => {
                     </button>
                 </div>
             </div>
-            <div className="relative w-full mb-3 mt-8" style={{ display: `${status == 2 ? 'block' : 'none'}` }}>
+            <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 1 ? 'block' : 'none'}` }}>
                 <div class="alert alert-success" role="alert">
                     Your message has been sent successfully!
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
