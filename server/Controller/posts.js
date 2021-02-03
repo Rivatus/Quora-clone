@@ -9,7 +9,6 @@ const getPosts = (req, res) => {
 const postQuestion = async (req, res) => {
     const data = req.body;
     const newQuestion = new question(data);
-    console.log(data);
     try {
         await newQuestion.save();
 
