@@ -12,7 +12,7 @@ const postQuestion = async (req, res) => {
     try {
         await newQuestion.save();
 
-        await users.findByIdAndUpdate(newQuestion.userId, { $push: { questions: newQuestion._id } });
+        //await users.findByIdAndUpdate(newQuestion.userId, { $push: { questions: newQuestion._id } });
         res.status(200).json(1);
     } catch (error) {
         res.status(404).json(2);
