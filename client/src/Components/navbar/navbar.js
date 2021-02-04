@@ -18,7 +18,7 @@ function navbar() {
       <div id="Navbar" className="bg-danger">
           <nav className="navbar navbar-expand-lg navbar-dark">
               <div className="dashBoard-icon">
-                <button>
+                <button className="btne">
                   Dashboard
                 </button>
               </div>
