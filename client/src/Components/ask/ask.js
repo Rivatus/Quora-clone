@@ -10,15 +10,18 @@ const AskForm = () => {
     const dispatch = useDispatch();
 
 
-    function clear() {
+    function clean() {
         changeData({ heading: '', description: '', tags: '', postedBy: "admin" });
     }
-
+    function clear(){
+        dispatch({type:'Reset'});
+        clean();
+    }
     function handleSubmit(e) {
         e.preventDefault();
         const t = { ...data, tags: data.tags.split(' ') };
         dispatch(askQuestion(t));
-        clear();
+        clean();
     }
 
     const status = useSelector((state) => state.message.status);
