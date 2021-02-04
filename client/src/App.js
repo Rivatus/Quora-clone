@@ -1,12 +1,25 @@
 import './App.css';
 import AskForm from './Components/ask/ask.js';
-import Navbar from './Components/navbar/navbar.js'
+import Navbar from './Components/navbar/navbar.js';
+import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-        <Navbar/>
-        <AskForm/>
-    </div>
+    <Router>
+      <div className="App">
+          <Navbar/>
+          <Switch>
+            <Route path="/ask">
+              <AskForm/>
+            </Route>
+            <Route path="/">
+              <h1>
+                Home
+              </h1>
+            </Route>
+          </Switch>
+          
+      </div>
+    </Router>
   );
 }
 

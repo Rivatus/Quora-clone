@@ -19,6 +19,10 @@
 .nav-item:hover{
   background-color: #b92b27;
 }
+.nav-item:hover{
+  text-decoration: none;
+  color:white;
+}
 @media only screen and (max-width: 800px) {
   .nav-item,.navbar-search{
     border-top:1px solid;
