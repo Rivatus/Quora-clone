@@ -16,7 +16,7 @@ const AskForm = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const t = { heading: data.heading, description: data.description, tags: [data.tags], postedBy: data.postedBy };
+        const t = { ...data, tags: data.tags.split(' ') };
         dispatch(askQuestion(t));
         clear();
     }
