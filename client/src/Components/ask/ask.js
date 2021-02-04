@@ -9,10 +9,16 @@ const AskForm = () => {
 
     const dispatch = useDispatch();
 
+
+    function clear() {
+        changeData({ heading: '', description: '', tags: '', postedBy: "admin" });
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         const t = { heading: data.heading, description: data.description, tags: [data.tags], postedBy: data.postedBy };
         dispatch(askQuestion(t));
+        clear();
     }
 
     const status = useSelector((state) => state.message.status);
@@ -32,6 +38,8 @@ const AskForm = () => {
                 <textarea value={data.tags} className="form-control" rows="2" onChange={(e) => { changeData({ ...data, tags: e.target.value }); }} placeholder="Add tags to your question" ></textarea>
             </div>
             <button type="submit" className="btn btn-danger askFormButton" >Ask</button>
+            <button type="button" className="btn btn-primary clearButton" onClick={clear} >Clear</button>
+
             <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 2 ? 'block' : 'none'}` }}>
                 <div class="alert alert-danger" role="alert">
                     Some error was encountered!
