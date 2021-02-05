@@ -24,8 +24,7 @@
   color:white;
 }
 .navbar-search{
-  align-items:right;
-  margin-right: -4px;
+  margin-right: auto;
 }
 @media only screen and (max-width: 800px) {
   .nav-item,.navbar-search{
