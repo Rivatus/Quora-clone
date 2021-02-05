@@ -1,6 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import quoraText from '../../Quora_text.PNG';
 function dashboard() {
 
 }
@@ -16,13 +17,14 @@ function login_logout() {
 function navbar() {
     return (
       <div id="Navbar" className="bg-danger">
-          <nav className="navbar navbar-expand-lg navbar-dark">              
+          <nav className="navbar navbar-expand-lg navbar-dark">
+              <img src={quoraText} style={{maxWidth:"150px",height:"40px",marginLeft:"5px",borderRadius:"5px"}}/>              
               <span className="navbar-search">
                 <input type="text"
                   className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                   placeholder="Search"
                   label="Search"
-                  style={{maxWidth:"170px"}}
+                  style={{maxWidth:"150px"}}
                 />
               </span> 
               <button
