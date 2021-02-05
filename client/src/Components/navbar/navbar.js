@@ -16,20 +16,15 @@ function login_logout() {
 function navbar() {
     return (
       <div id="Navbar" className="bg-danger">
-          <nav className="navbar navbar-expand-lg navbar-dark">
-              <div className="dashBoard-icon">
-                <button className="btne">
-                  Dashboard
-                </button>
-              </div>
-              <li className="navbar-search">
+          <nav className="navbar navbar-expand-lg navbar-dark">              
+              <span className="navbar-search">
                 <input type="text"
                   className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                   placeholder="Search"
                   label="Search"
-                  style={{maxWidth:"250px"}}
+                  style={{maxWidth:"170px"}}
                 />
-              </li> 
+              </span> 
               <button
                   className="navbar-toggler btne"
                   type="button"
@@ -43,7 +38,13 @@ function navbar() {
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto ds">                      
-                                           
+                      <Link className="navbar-link" to="/">
+                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                            <button className="btne">
+                                Dashboard
+                            </button>
+                        </li>
+                      </Link>                     
                       <Link className="navbar-link" to="/">
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                             <button className="btne">
