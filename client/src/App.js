@@ -12,13 +12,13 @@ function App() {
           <Route path="/ask">
             <AskForm />
           </Route>
-          <Route path="/">
-            <h1>
-              Home
-              </h1>
-          </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/">
+            <h1 style={{marginTop:"200px"}}>
+              Home
+              </h1>
           </Route>
         </Switch>
 
