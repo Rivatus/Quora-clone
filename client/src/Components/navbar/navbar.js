@@ -56,7 +56,7 @@ function navbar() {
                             </button>
                         </li>
                       </Link>
-                      <Link className="navbar-link">
+                      <Link className="navbar-link" to="/login">
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                             <button className="btne">
                                 Login
