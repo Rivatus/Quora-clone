@@ -1,7 +1,7 @@
 import './App.css';
 import Ask from './Pages/Ask.js';
 import Navbar from './Components/navbar/navbar.js';
-import Login from './Components/Login/login.js';
+import LoginPage from './Pages/Login.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   return (
@@ -10,13 +10,13 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/ask">
-            <Ask/>
+            <Ask />
           </Route>
           <Route path="/login">
-            <Login />
+            <LoginPage />
           </Route>
           <Route path="/">
-            <h1 style={{marginTop:"200px"}}>
+            <h1 style={{ marginTop: "200px" }}>
               Home
               </h1>
           </Route>
