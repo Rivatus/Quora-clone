@@ -145,4 +145,15 @@
  .btn-yahoo:active,.btn-yahoo.active,.open>.dropdown-toggle.btn-yahoo{background-image:none}
  .btn-yahoo.disabled:hover,.btn-yahoo[disabled]:hover,fieldset[disabled] .btn-yahoo:hover,.btn-yahoo.disabled:focus,.btn-yahoo[disabled]:focus,fieldset[disabled] .btn-yahoo:focus,.btn-yahoo.disabled.focus,.btn-yahoo[disabled].focus,fieldset[disabled] .btn-yahoo.focus{background-color:#720e9e;border-color:rgba(0,0,0,0.2)}
  .btn-yahoo .badge{color:#720e9e;background-color:#fff}
+
+
+ .LoginHeading{
+     font-size: 52px;
+     margin-top: 100px;
+     font-weight: bold;
+ }
  
+ .Authentication {
+     margin-left: 33%;
+     padding-top: 5%;
+ }
