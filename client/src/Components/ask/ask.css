@@ -18,18 +18,15 @@
 }
 
 .askFormButton {
-    padding: 5px;
-    padding-right: 50px;
-    padding-left: 50px;
-    margin-left: 40%;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
+    margin-left: 25%;
 }
 
 .clearButton {
-    margin-right: auto;
-    margin-left:5px;
-    padding: 5px;
-    padding-right: 50px;
-    padding-left: 50px;
+    margin-left: 25%;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
 }
 .form-group label{
   text-align: left;
