@@ -157,3 +157,9 @@
  .Authentication {
      padding-top: 5%;
  }
+
+ @media only screen and (min-width: 750px) {
+     .Authentication {
+        margin-left: 33%;
+     }
+ }
