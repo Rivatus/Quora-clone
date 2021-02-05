@@ -1,5 +1,5 @@
 import './App.css';
-import AskForm from './Components/ask/ask.js';
+import Ask from './Pages/Ask.js';
 import Navbar from './Components/navbar/navbar.js';
 import Login from './Components/Login/login.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -10,7 +10,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/ask">
-            <AskForm />
+            <Ask/>
           </Route>
           <Route path="/login">
             <Login />
