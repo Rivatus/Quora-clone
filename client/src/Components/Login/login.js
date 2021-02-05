@@ -7,7 +7,7 @@ const Login = () => {
 
         <div className="row">
 
-            <div className="col-sm-4 Authentication">
+            <div className="col-md-4 Authentication">
                 <div className="card social-block">
                     <div className="card-body">
                         <a className="btn btn-block btn-google" href="/auth/google" role="button">
