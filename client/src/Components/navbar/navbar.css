@@ -23,6 +23,9 @@
   text-decoration: none;
   color:white;
 }
+.navbar-search::marker{
+  display: none!important;
+}
 @media only screen and (max-width: 800px) {
   .nav-item,.navbar-search{
     border-top:1px solid;

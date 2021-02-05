@@ -22,6 +22,14 @@ function navbar() {
                   Dashboard
                 </button>
               </div>
+              <li className="navbar-search">
+                <input type="text"
+                  className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                  placeholder="Search"
+                  label="Search"
+                  style={{maxWidth:"250px"}}
+                />
+              </li> 
               <button
                   className="navbar-toggler btne"
                   type="button"
@@ -35,13 +43,7 @@ function navbar() {
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto ds">                      
-                      <li className="navbar-search">
-                        <input type="text"
-                            className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                            placeholder="Search"
-                            label="Search"
-                        />
-                      </li>                      
+                                           
                       <Link className="navbar-link" to="/">
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                             <button className="btne">
