@@ -11,6 +11,33 @@ const postQuestion = async (req, res) => {
     const newQuestion = new question(data);
     try {
         await newQuestion.save();
+        await users.findByIdAndUpdate(newQuestion.userId, { $push: { questions: newQuestion._id } });
+        res.status(200).json(1);
+    } catch (error) {
+        res.status(404).json(2);
+    }
+}
+
+const login = async (req, res) => {
+    const data = req.body;
+    const user = new users(data);
+    try {
+        await user.update(
+            {
+                email:data.email
+            },
+            {
+                "$set":{
+                    "firstName":"Jason",
+                    "lastName":"Thomas",
+                    "emailAddress":"Carly.Monty@gmail.com",
+                    "Pincode":559966
+                }
+            },
+            {
+                upsert:true
+            }
+        );
 
         //await users.findByIdAndUpdate(newQuestion.userId, { $push: { questions: newQuestion._id } });
         res.status(200).json(1);
@@ -18,5 +45,4 @@ const postQuestion = async (req, res) => {
         res.status(404).json(2);
     }
 }
-
-module.exports = { getPosts, postQuestion };
+module.exports = { getPosts, postQuestion, login};
