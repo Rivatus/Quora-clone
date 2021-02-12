@@ -7,29 +7,23 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-
     const GoogleSuccess = async (user) => {
         const userDetail = user?.profileObj;
         const token = user?.tokenId;
-
         try {
+            console.log(userDetail);
             dispatch({ type: 'AUTH', data: { userDetail, token } });
-
             history.push('/');
         } catch (error) {
             console.log(error);
         }
     }
-
     const GoogleFailure = (error) => {
         console.log(error);
     }
-
     return <div class="container mt-10">
         <h1 className="LoginHeading">Login</h1>
-
         <div className="row">
-
             <div className="col-md-4 Authentication">
                 <div className="card social-block">
                     <div className="card-body">
