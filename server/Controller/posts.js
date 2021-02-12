@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const question = require('../models/question.js');
-
 const users = require('../models/user.js');
 const getPosts = (req, res) => {
     res.send("Hello World!");
@@ -20,10 +19,9 @@ const postQuestion = async (req, res) => {
 
 const login = async (req, res) => {
     const data = req.body;
-    const user = new users(data);
     try {
-        console.log(user);
-        await user.update(
+        console.log(data);
+        const user=await users.findOneAndUpdate(
             {
                 email:data.email
             },
@@ -36,6 +34,7 @@ const login = async (req, res) => {
                 }
             },
             {
+                returnOriginal:false,
                 upsert:true
             }
         );
