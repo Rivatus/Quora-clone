@@ -3,16 +3,15 @@ import './login.css';
 import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { login } from '../../actions';
 
 const Login = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const GoogleSuccess = async (user) => {
-        const userDetail = user?.profileObj;
-        const token = user?.tokenId;
         try {
-            console.log(userDetail);
-            dispatch({ type: 'AUTH', data: { userDetail, token } });
+            dispatch(login(user));
+
             history.push('/');
         } catch (error) {
             console.log(error);
