@@ -20,17 +20,13 @@ const postQuestion = async (req, res) => {
 const login = async (req, res) => {
     const data = req.body;
     try {
-        console.log(data);
         const user=await users.findOneAndUpdate(
             {
                 email:data.email
             },
             {
                 "$set":{
-                    "firstName":"Jason",
-                    "lastName":"Thomas",
-                    "emailAddress":"Carly.Monty@gmail.com",
-                    "Pincode":559966
+                    lastLogin:new Date()
                 }
             },
             {
@@ -38,11 +34,9 @@ const login = async (req, res) => {
                 upsert:true
             }
         );
-        console.log(user);
-        //await users.findByIdAndUpdate(newQuestion.userId, { $push: { questions: newQuestion._id } });
-        res.status(200).json(1);
+        res.status(200).json(user);
     } catch (error) {
-        res.status(404).json(2);
+        res.status(404).json("Error");
     }
 }
 module.exports = { getPosts, postQuestion, login};

@@ -11,7 +11,6 @@ const Login = () => {
     const GoogleSuccess = async (user) => {
         try {
             dispatch(login(user));
-
             history.push('/');
         } catch (error) {
             console.log(error);

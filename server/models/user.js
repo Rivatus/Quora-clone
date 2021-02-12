@@ -12,6 +12,10 @@ const userSchema = new Schema({
     facebook:String,
     answers:[String],
     questions:[String],
+    lastLogin:{
+        type: Date,
+        default: new Date()
+    },
     description:String
 });
 
