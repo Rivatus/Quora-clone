@@ -13,7 +13,6 @@ export const askQuestion = (question) => async (dispatch) => {
 export const login = (user) => async (dispatch) => {
     const userDetail = user?.profileObj;
     const token = user?.tokenId;
-
     try {
         await api.login(userDetail);
         await dispatch({ type: 'AUTH', data: { userDetail, token } });
