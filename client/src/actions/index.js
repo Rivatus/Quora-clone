@@ -9,3 +9,15 @@ export const askQuestion = (question) => async (dispatch) => {
         await dispatch({ type: "Ask", payload: 2 });
     }
 }
+
+export const login = (user) => async (dispatch) => {
+    const userDetail = user?.profileObj;
+    const token = user?.tokenId;
+
+    try {
+        await api.login(userDetail);
+        await dispatch({ type: 'AUTH', data: { userDetail, token } });
+    } catch (error) {
+        console.log(error);
+    }
+}
