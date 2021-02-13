@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const question = require('../models/question.js');
 const users = require('../models/user.js');
-const getPosts = (req, res) => {
+const getPost= (req, res) => {
     res.send("Hello World!");
 }
 
@@ -17,26 +17,8 @@ const postQuestion = async (req, res) => {
     }
 }
 
-const login = async (req, res) => {
-    const data = req.body;
-    try {
-        const user=await users.findOneAndUpdate(
-            {
-                email:data.email
-            },
-            {
-                "$set":{
-                    lastLogin:new Date()
-                }
-            },
-            {
-                returnOriginal:false,
-                upsert:true
-            }
-        );
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(404).json("Error");
-    }
+const getAllPosts = async (req,res) => {
+
 }
-module.exports = { getPosts, postQuestion, login};
+
+module.exports = { getPost, postQuestion, getPost, getAllPosts };
