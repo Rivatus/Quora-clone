@@ -8,7 +8,7 @@ function post(props) {
                 <p>Posted by - {props.postedBy}</p>
             </div>
             <div>
-                <h2 className="post-h2">{props.answers[0].postedBy}</h2>
+                <h2 className="post-h2">Answered by - {props.answers[0].postedBy}</h2>
                 <p>{props.answers[0].description}</p>
             </div>
         </div>
