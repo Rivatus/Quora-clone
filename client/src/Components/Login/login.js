@@ -10,7 +10,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const GoogleSuccess = async (user) => {
         try {
-            dispatch(login(user));
+            await dispatch(login(user));
             history.push('/');
         } catch (error) {
             console.log(error);
