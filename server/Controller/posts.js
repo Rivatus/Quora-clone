@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const question = require('../models/question.js');
 const users = require('../models/user.js');
-const answers = require('../models/user.js');
+const answers = require('../models/answer.js');
 const getPost = (req, res) => {
     res.send("Hello World!");
 }
@@ -25,20 +25,24 @@ const getAllPosts = async (req, res) => {
         const questions = await question.find();
         questions.sort(function (a, b) { a._id < b._id });
         const posts = [];
-        for (let i = 0, j = 0, l = 0; l < questions.size(); i = j, ++l) {
+        let i = 0, j = 0, l = 0;
+        for (;(i<answer.length)&&(l<questions.length); i = j, ++l) {
             while (questions[l]._id != answer[i].questionId) {
                 posts.push({ question: questions[l], answer: [] });
                 ++l;
             }
             let temp = [];
-            while ((j < answer.size()) && (answer[i].questionId === answer[j].questionId)) {
+            while ((j < answer.length) && (answer[i].questionId === answer[j].questionId)) {
                 temp.push(answer[j]);
                 ++j;
             }
             posts.push({ question: question[l], answer: temp });
             ++l;
         }
-        console.log(posts);
+        while (l<questions.length) {
+            posts.push({ question: questions[l], answer: [] });
+            ++l;
+        }
         res.status(200).json(posts);
     } catch (error) {
         console.log(error);
