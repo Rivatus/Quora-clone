@@ -8,7 +8,7 @@
     background-color: white;
 }
 
-.post-poster{
+.post-question-description{
     text-align: right;
     padding-right: 10px;
 }
@@ -18,7 +18,7 @@
     padding-left: 10px;
 }
 
-.post-h2{    
+.post-question-heading{    
     font-size: 30px;
     font-weight: bold;
 }
