@@ -31,3 +31,9 @@
 .form-group label{
   text-align: left;
 }
+@media only screen and (max-width: 360px) {
+    .askFormButton,.clearButton {
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+}

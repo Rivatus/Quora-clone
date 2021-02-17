@@ -36,7 +36,7 @@ function Navbar() {
     return (
         <div id="Navbar" className="bg-danger">
             <nav className="navbar navbar-expand-lg navbar-dark">
-                <img src={quoraText} style={{ maxWidth: "150px", height: "40px", marginLeft: "5px", borderRadius: "5px" }} />
+                <img src={quoraText} className="navbar-logo" />
                 <span className="navbar-search">
                     <input type="text"
                         className="px-3 py-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"

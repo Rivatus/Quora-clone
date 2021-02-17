@@ -26,6 +26,20 @@
 .navbar-search{
   margin-right: auto;
 }
+.navbar-logo{
+  max-width: 150px;
+  height: 40px;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 360px) {
+  .navbar-logo{
+    max-width: 100px;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 5px;
+  }
+}
 @media only screen and (max-width: 800px) {
   .nav-item,.navbar-search{
     border-top:1px solid;
