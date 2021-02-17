@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const answerSchema = new Schema({
     userId:String,
-    question:String,
+    questionId:String,
     description:String,
     date: {
         type: Date,
