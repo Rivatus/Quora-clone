@@ -3,12 +3,13 @@ import './post.css';
 function post(props) {
     return (
         <div>
-            <div>
+            <div className="post">
                 <h2 className="post-h2">{props.heading}</h2>
-                <p>Posted by - {props.postedBy}</p>
+                <p className="post-poster">Posted by - {props.postedBy}</p>
             </div>
-            <div>
-                <h2 className="post-h2">Answered by - {props.answers[0].postedBy}</h2>
+            <br />
+            <div className="post post-answer">
+                <p className="post-answerer">Answered by -{props.answers[0].postedBy}</p> <br />
                 <p>{props.answers[0].description}</p>
             </div>
         </div>
