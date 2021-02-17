@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const question = require('../models/question.js');
 const users = require('../models/user.js');
 const answers = require('../models/user.js');
-const getPost= (req, res) => {
+const getPost = (req, res) => {
     res.send("Hello World!");
 }
 
@@ -18,32 +18,31 @@ const postQuestion = async (req, res) => {
     }
 }
 
-const getAllPosts = async (req,res) => {
+const getAllPosts = async (req, res) => {
     try {
         const answer = await answers.find();
-        answer.sort(function(a,b){a.questionId<b.questionId});
+        answer.sort(function (a, b) { a.questionId < b.questionId });
         const questions = await question.find();
-        questions.sort(function(a,b){a._id<b._id});
-        const posts=[];
-        for(let i=0,j=0,l=0;l<questions.size();i=j,++l)
-        {
-            while(questions[l]._id!=answer[i].questionId)
-            {
-                posts.push({question:questions[l],answer:[]});
+        questions.sort(function (a, b) { a._id < b._id });
+        const posts = [];
+        for (let i = 0, j = 0, l = 0; l < questions.size(); i = j, ++l) {
+            while (questions[l]._id != answer[i].questionId) {
+                posts.push({ question: questions[l], answer: [] });
                 ++l;
             }
-            let temp=[];
-            while((j<answer.size())&&(answer[i].questionId===answer[j].questionId))
-            {
+            let temp = [];
+            while ((j < answer.size()) && (answer[i].questionId === answer[j].questionId)) {
                 temp.push(answer[j]);
                 ++j;
             }
-            posts.push({question:question[l],answer:temp});
+            posts.push({ question: question[l], answer: temp });
             ++l;
         }
+        console.log(posts);
         res.status(200).json(posts);
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        console.log(error);
+        res.status(404).json({ message: error });
     }
 }
 
