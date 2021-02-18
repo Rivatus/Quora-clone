@@ -24,8 +24,7 @@ export const login = (user) => async (dispatch) => {
 export const getPosts = async () => {
     try {
         const posts = await api.getAllPosts();
-        //console.log(posts.data);
-        return posts.data;
+        return posts;
     } catch (error) {
         console.log(error);
     }

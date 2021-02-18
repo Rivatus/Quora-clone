@@ -26,7 +26,7 @@ const getAllPosts = async (req, res) => {
         questions.sort(function (a, b) { a._id < b._id });
         const posts = [];
         let i = 0, j = 0, l = 0;
-        for (;(i<answer.length)&&(l<questions.length); i = j, ++l) {
+        for (; (i < answer.length) && (l < questions.length); i = j, ++l) {
             while (questions[l]._id != answer[i].questionId) {
                 posts.push({ question: questions[l], answer: [] });
                 ++l;
@@ -39,7 +39,7 @@ const getAllPosts = async (req, res) => {
             posts.push({ question: question[l], answer: temp });
             ++l;
         }
-        while (l<questions.length) {
+        while (l < questions.length) {
             posts.push({ question: questions[l], answer: [] });
             ++l;
         }
