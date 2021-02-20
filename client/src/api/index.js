@@ -7,3 +7,5 @@ export const askquestion = (question) => axios.post(`${url}/question`, question)
 export const login = (user) => axios.post(`${url}/login`, user);
 
 export const getAllPosts = () => axios.get(`${url}`);
+
+export const answer = (answer) => axios.post(`${url}/answer`, answer);

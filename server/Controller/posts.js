@@ -50,4 +50,19 @@ const getAllPosts = async (req, res) => {
     }
 }
 
-module.exports = { getPost, postQuestion, getPost, getAllPosts };
+const answerquestion = async (req, res) => {
+    const data = req.body;
+    try {
+        const genAns = { userId: "admin", questionId: data.questionId.id, description: data.answer.heading };
+        const newAnswer = new answers(genAns);
+        await newAnswer.save();
+        await question.findByIdAndUpdate(newAnswer.questionId, { $push: { answersId: newAnswer._id } });
+        res.status(200).json(1);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json(2);
+    }
+}
+
+
+module.exports = { getPost, postQuestion, answerquestion, getAllPosts };

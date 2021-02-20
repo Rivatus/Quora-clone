@@ -21,10 +21,20 @@ export const login = (user) => async (dispatch) => {
     }
 }
 
-export const getPosts = async () => {
+export const getPosts = () => async (dispatch) => {
     try {
         const posts = await api.getAllPosts();
-        return posts;
+
+        dispatch({ type: 'FETCH_ALL', payload: posts.data });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const answer = async (data) => {
+    try {
+        await api.answer(data);
+
     } catch (error) {
         console.log(error);
     }
