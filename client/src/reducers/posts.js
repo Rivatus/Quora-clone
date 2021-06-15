@@ -1,4 +1,3 @@
-
 export default (posts = [], action) => {
     switch (action.type) {
         case "Ask":

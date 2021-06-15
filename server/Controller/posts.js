@@ -20,29 +20,6 @@ const postQuestion = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
     try {
-        // const answer = await answers.find();
-        // answer.sort(function (a, b) { a.questionId < b.questionId });
-        // const questions = await question.find();
-        // questions.sort(function (a, b) { a._id < b._id });
-        // const posts = [];
-        // let i = 0, j = 0, l = 0;
-        // for (; (i < answer.length) && (l < questions.length); i = j, ++l) {
-        //     while (questions[l]._id != answer[i].questionId) {
-        //         posts.push({ question: questions[l], answer: [] });
-        //         ++l;
-        //     }
-        //     let temp = [];
-        //     while ((j < answer.length) && (answer[i].questionId === answer[j].questionId)) {
-        //         temp.push(answer[j]);
-        //         ++j;
-        //     }
-        //     posts.push({ question: question[l], answer: temp });
-        //     ++l;
-        // }
-        // while (l < questions.length) {
-        //     posts.push({ question: questions[l], answer: [] });
-        //     ++l;
-        // }
         const questions = await question.find();
         const posts = [];
         for (let i = 0; i < questions.length; ++i) {
