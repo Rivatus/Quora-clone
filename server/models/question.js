@@ -8,7 +8,7 @@ const questionSchema = mongoose.Schema({
         default: new Date()
     },
     tags: [String],
-    userId: String,
+    userId: Object,
     answersId: [String]
 });
 

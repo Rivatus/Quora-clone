@@ -11,4 +11,4 @@ export default (state = { authData: null }, action) => {
         default:
             return state;
     }
-} 
+}

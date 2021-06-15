@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { answer } from '../../actions/index.js';
 import './answer.css';
 
 
 const AnswerQuestion = (props) => {
-    const [data, changeData] = useState({ heading: '', description: '', tags: '', postedBy: "admin" });
+    const [data, changeData] = useState();
 
     const dispatch = useDispatch();
-
-
+    const user = useStore().getState().auth.authData;
     function clean() {
-        changeData({ heading: '', description: '', tags: '', postedBy: "admin" });
+        changeData();
     }
     function clear() {
         dispatch({ type: 'Reset' });
@@ -19,42 +20,53 @@ const AnswerQuestion = (props) => {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        answer({ answer: data, questionId: props.questionId });
+        answer({ answer: data, questionId: props.questionId, user: user });
         clean();
+    }
+
+    function handleChange(event, editor) {
+        const answer = editor.getData();
+        changeData(answer);
     }
 
     const status = useSelector((state) => state.message.status);
 
-    return <div className="Askform shadow-lg">
-        <div className="form-group" >
-            <label>{props.questionHeading}</label>
-        </div>
-        <form onSubmit={handleSubmit} >
+    return (
+        <div className="Askform shadow-lg">
             <div className="form-group" >
-                <label>Answer</label>
-                <textarea value={data.heading} className="form-control" rows="3" onChange={(e) => { changeData({ ...data, heading: e.target.value }); }} placeholder="Enter your answer here..." required></textarea>
+                <label>{props.questionHeading}</label>
             </div>
-            <button type="submit" className="btn btn-danger askFormButton" >Ask</button>
-            <button type="button" className="btn btn-primary clearButton" onClick={clear} >Clear</button>
+            <form onSubmit={handleSubmit} >
+                <div className="form-group" >
+                    <label>Answer</label>
+                    <CKEditor
+                        editor={ClassicEditor}
+                        data="<p>Enter your answer...</p>"
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit" className="btn btn-danger askFormButton" > Answer </button>
+                <button type="button" className="btn btn-primary clearButton" onClick={clear} > Clear </button>
 
-            <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 2 ? 'block' : 'none'}` }}>
-                <div class="alert alert-danger" role="alert">
-                    Some error was encountered!
+                <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 2 ? 'block' : 'none'}` }}>
+                    <div class="alert alert-danger" role="alert">
+                        Some error was encountered!
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 1 ? 'block' : 'none'}` }}>
-                <div class="alert alert-success" role="alert">
-                    Your message has been sent successfully!
+                <div className="relative w-full mb-3 mt-8" style={{ display: `${status === 1 ? 'block' : 'none'}` }}>
+                    <div class="alert alert-success" role="alert">
+                        Your message has been sent successfully!
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    );
 }
 
 export default AnswerQuestion;

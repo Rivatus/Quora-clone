@@ -24,7 +24,7 @@ export const login = (user) => async (dispatch) => {
 export const getPosts = () => async (dispatch) => {
     try {
         const posts = await api.getAllPosts();
-
+        // console.log(posts);
         dispatch({ type: 'FETCH_ALL', payload: posts.data });
     } catch (error) {
         console.log(error);

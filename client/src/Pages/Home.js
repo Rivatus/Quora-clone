@@ -14,17 +14,17 @@ function Home() {
         dispatch(getPosts());
     }, [location]);
 
-    console.log(posts);
+    // console.log(posts);
 
     return (
         <div>
-            <Post postedBy="Sarthak" heading="Spd kitna mc hai?" answers={[{ postedBy: "Sarthak", description: "Bohot zyada" }]}
-            />
+            {/* <Post postedBy="Sarthak" heading="Spd kitna mc hai?" answers={[{ postedBy: "Sarthak", description: "Bohot zyada" }]}
+            /> */}
             {posts.map((post) => {
                 //console.log(post);
                 {
                     return <Post postedBy={post.question?.postedBy} heading={post.question?.heading}
-                        key={post.question?._id} id={post.question?._id} history={history}
+                        key={post.question?._id} id={post.question?._id} history={history} answer={post.answer}
                     />
                 }
             })}

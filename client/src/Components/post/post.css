@@ -32,7 +32,10 @@
     display: none;
 }
 
-.post-answer-btn:hover + .post-hide{
-    display: block;
+.post-answer-btn:hover .post-hide{
+    display: inline;
+}
 
+p{
+    font-size: 25px;    
 }
