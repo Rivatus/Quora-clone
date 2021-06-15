@@ -19,7 +19,7 @@ const AskForm = () => {
         changeData({ heading: '', description: '', tags: '', postedBy: "admin" });
     }
     function clear() {
-        dispatch({ type: 'Reset' });
+        // dispatch({ type: 'Reset' });
         clean();
     }
     function handleSubmit(e) {

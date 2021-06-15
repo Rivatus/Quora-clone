@@ -1,32 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { answer } from '../../actions/index.js';
+import { authContext } from '../../App.js';
 import './answer.css';
 
 
 const AnswerQuestion = (props) => {
-    const [data, changeData] = useState();
+    const [data, changeData] = useState('');
+
+    const [user, _] = useContext(authContext);
 
     const dispatch = useDispatch();
-    const user = useStore().getState().auth.authData;
+
     function clean() {
-        changeData();
+        changeData('');
     }
+
     function clear() {
-        dispatch({ type: 'Reset' });
-        clean();
-    }
-    function handleSubmit(e) {
-        e.preventDefault();
-        answer({ answer: data, questionId: props.questionId, user: user });
+        // dispatch({ type: 'Reset' });
         clean();
     }
 
-    function handleChange(event, editor) {
-        const answer = editor.getData();
-        changeData(answer);
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(data);
+        answer({ answer: data, questionId: props.questionId, user: user });
+        clean();
     }
 
     const status = useSelector((state) => state.message.status);
@@ -39,11 +40,12 @@ const AnswerQuestion = (props) => {
             <form onSubmit={handleSubmit} >
                 <div className="form-group" >
                     <label>Answer</label>
-                    <CKEditor
+                    {/* <CKEditor
                         editor={ClassicEditor}
                         data="<p>Enter your answer...</p>"
                         onChange={handleChange}
-                    />
+                    /> */}
+                    <textarea value={data} className="form-control" rows="5" onChange={e => changeData(e.target.value)} placeholder="Enter your answer here..." required></textarea>
                 </div>
                 <button type="submit" className="btn btn-danger askFormButton" > Answer </button>
                 <button type="button" className="btn btn-primary clearButton" onClick={clear} > Clear </button>

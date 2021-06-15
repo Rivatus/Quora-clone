@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import './post.css';
 
@@ -23,7 +22,7 @@ function post(props) {
             <br />
             {props.answer && <div className="post-answer">
                 <p className="post-answerer">Answered by - {props.answer?.userId.name}</p>
-                <div> {ReactHtmlParser(props.answer?.description)} </div>
+                <div> {props.answer?.description} </div>
             </div>}
         </div>
     );
