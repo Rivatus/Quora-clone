@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // Schema
 const Schema = mongoose.Schema;
 const answerSchema = new Schema({
-    userId: Object,
+    postedBy: Object,
     questionId: String,
     description: String,
     date: {

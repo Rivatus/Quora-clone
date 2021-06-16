@@ -7,16 +7,14 @@ import './ask.css';
 
 
 const AskForm = () => {
-    const [data, changeData] = useState({ heading: '', description: '', tags: '', postedBy: "admin" });
-
     const [user, _] = useContext(authContext);
     console.log(user);
-
+    const [data, changeData] = useState({ heading: '', description: '', tags: '', postedBy: user });
     const dispatch = useDispatch();
 
 
     function clean() {
-        changeData({ heading: '', description: '', tags: '', postedBy: "admin" });
+        changeData({ heading: '', description: '', tags: '', postedBy: user });
     }
     function clear() {
         // dispatch({ type: 'Reset' });
