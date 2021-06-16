@@ -20,7 +20,7 @@ function post(props) {
             </div>
             <br />
             {props.answer && <div className="post-answer">
-                <p className="post-answerer">Answered by - {props.answer?.userId.name}</p>
+                <p className="post-answerer">Answered by - {props.answer?.postedBy.name}</p>
                 <div> {props.answer?.description} </div>
             </div>}
         </div>

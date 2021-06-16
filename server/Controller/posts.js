@@ -41,10 +41,11 @@ const answerquestion = async (req, res) => {
     const data = req.body;
     console.log(data);
     try {
-        const genAns = { userId: data.user.userDetail, questionId: data.questionId.id, description: data.answer };
+        const genAns = { postedBy: data.user, questionId: data.questionId.id, description: data.answer };
         const newAnswer = new answers(genAns);
         await newAnswer.save();
         await question.findByIdAndUpdate(newAnswer.questionId, { $push: { answersId: newAnswer._id } });
+        await users.findByIdAndUpdate(newAnswer.postedBy._id, { $push: { answers: newAnswer._id } });
         res.status(200).json(1);
     } catch (error) {
         console.log(error);

@@ -20,7 +20,7 @@ function Home() {
         <div>
             {posts.map((post) => {
                 {
-                    return <Post postedBy={post.question?.postedBy} heading={post.question?.heading}
+                    return <Post postedBy={post.question?.postedBy.name} heading={post.question?.heading}
                         key={post.question?._id} id={post.question?._id} history={history} answer={post.answer}
                     />
                 }
