@@ -4,7 +4,6 @@ import './post.css';
 
 function post(props) {
 
-    console.log(props.answer.description);
 
     return (
         <div className="post">
