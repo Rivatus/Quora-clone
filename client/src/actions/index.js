@@ -14,7 +14,7 @@ export const login = (user) => async (dispatch) => {
     let userDetail = user?.profileObj;
     const token = user?.tokenId;
     try {
-        userDetail=await api.login(userDetail);
+        userDetail = await api.login(userDetail);
         await dispatch({ type: 'AUTH', data: userDetail.data });
     } catch (error) {
         console.log(error);
@@ -31,11 +31,13 @@ export const getPosts = () => async (dispatch) => {
     }
 }
 
-export const answer = async (data) => {
+export const answer = (data) => async (dispatch) => {
     try {
-        await api.answer(data);
-
+        const res = await api.answer(data);
+        // console.log(data);
+        await dispatch({ type: "Answer", payload: res.data });
     } catch (error) {
         console.log(error);
+        await dispatch({ type: "Answer", payload: 2 });
     }
 }

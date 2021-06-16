@@ -17,17 +17,17 @@ const AskForm = () => {
         changeData({ heading: '', description: '', tags: '', postedBy: user });
     }
     function clear() {
-        // dispatch({ type: 'Reset' });
+        setTimeout(() => dispatch({ type: 'Reset' }), 5000);
         clean();
     }
     function handleSubmit(e) {
         e.preventDefault();
         const t = { ...data, tags: data.tags.split(' ') };
         dispatch(askQuestion(t));
-        clean();
+        clear();
     }
 
-    const status = useSelector((state) => state.message.status);
+    const status = useSelector((state) => state.message.askstatus);
 
     if (!user) {
         return <> <br /> <br /> <br /> <br /> <p> <Link to={{ pathname: "/login", state: { pathname: "/ask" } }}> Log In</Link> to ask a question </p> </>;

@@ -19,18 +19,18 @@ const AnswerQuestion = (props) => {
     }
 
     function clear() {
-        // dispatch({ type: 'Reset' });
+        setTimeout(() => dispatch({ type: 'Reset' }), 5000);
         clean();
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log(data);
-        answer({ answer: data, questionId: props.questionId, user: user });
-        clean();
+        dispatch(answer({ answer: data, questionId: props.questionId, user: user }));
+        clear();
     }
 
-    const status = useSelector((state) => state.message.status);
+    const status = useSelector((state) => state.message.answerstatus);
 
     return (
         <div className="Askform shadow-lg">

@@ -1,9 +1,11 @@
 export default (message = { status: 0 }, action) => {
     switch (action.type) {
         case "Ask":
-            return { status: action.payload };
+            return { ...message, askstatus: action.payload };
+        case "Answer":
+            return { ...message, answerstatus: action.payload };
         case "Reset":
-            return { status:0};
+            return { askstatus: 0, answerstatus: 0 };
         default:
             return message;
     }
