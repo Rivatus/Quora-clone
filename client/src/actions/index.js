@@ -15,8 +15,7 @@ export const login = (user) => async (dispatch) => {
     const token = user?.tokenId;
     try {
         userDetail=await api.login(userDetail);
-        let temp=userDetail.data;
-        await dispatch({ type: 'AUTH', data: temp });
+        await dispatch({ type: 'AUTH', data: userDetail.data });
     } catch (error) {
         console.log(error);
     }
