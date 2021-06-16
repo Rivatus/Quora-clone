@@ -11,11 +11,12 @@ export const askQuestion = (question) => async (dispatch) => {
 }
 
 export const login = (user) => async (dispatch) => {
-    const userDetail = user?.profileObj;
+    let userDetail = user?.profileObj;
     const token = user?.tokenId;
     try {
-        await api.login(userDetail);
-        await dispatch({ type: 'AUTH', data: { userDetail, token } });
+        userDetail=await api.login(userDetail);
+        console.log(userDetail);
+        await dispatch({ type: 'AUTH', data: { userDetail.data, token } });
     } catch (error) {
         console.log(error);
     }
