@@ -53,5 +53,26 @@ const answerquestion = async (req, res) => {
     }
 }
 
+const updateUserDetail = async (req, res) => {
+    const data = req.body;
+    console.log(data);
+    try {
+        const user = await users.findByIdAndUpdate(data.userId,
+            {
+                "$set": {
+                    name: data.name,
+                    description: data.description,
+                }
+            },
+            {
+                returnOriginal: false
+            }
+        );
+        res.status(200).json(user);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json("Error");
+    }
+}
 
-module.exports = { getPost, postQuestion, answerquestion, getAllPosts };
+module.exports = { getPost, postQuestion, answerquestion, getAllPosts, updateUserDetail };

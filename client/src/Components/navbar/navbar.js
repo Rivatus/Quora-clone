@@ -5,7 +5,7 @@ import quoraText from '../../Quora_text.PNG';
 import { useDispatch } from 'react-redux';
 import { authContext } from '../../App';
 function Navbar() {
-    const [user, setUser] = useContext(authContext); 
+    const [user, setUser] = useContext(authContext);
     const location = useLocation();
     const dispatch = useDispatch();
     useEffect(() => {
@@ -28,15 +28,15 @@ function Navbar() {
     return (
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" >
             <div class="container-fluid">
-                <a class="navbar-brand ml-3" href="#">Quora-Clone</a>
+                <a class="navbar-brand ml-3" href="/">Quora-Clone</a>
                 <button class="navbar-toggler p-0 border-0" type="button" onClick={toogleState} id="navbarSideCollapse" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="navbar-collapse ml-auto offcanvas-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">                    
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                         <li class="nav-item" onClick={toogleState}>
-                            <Link to="/" class="nav-link" >Dashboard </Link>
+                            <Link to="/me" class="nav-link" >Dashboard </Link>
                         </li>
                         <li class="nav-item" onClick={toogleState}>
                             <Link to="/" class="nav-link" > Home </Link>
@@ -55,7 +55,7 @@ function Navbar() {
                             </form>
                         </li>
                     </ul>
-                    
+
                 </div>
             </div>
         </nav>

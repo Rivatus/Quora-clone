@@ -4,6 +4,7 @@ import Navbar from './Components/navbar/navbar.js';
 import LoginPage from './Pages/Login.js';
 import Answer from './Pages/Answer.js';
 import HomePage from './Pages/Home';
+import Dashboard from './Pages/Dashboard';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createContext, useState } from 'react';
 
@@ -18,6 +19,9 @@ function App() {
           <Switch>
             <Route path="/ask">
               <Ask />
+            </Route>
+            <Route path="/me">
+              <Dashboard />
             </Route>
             <Route path="/login">
               <LoginPage />

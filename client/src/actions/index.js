@@ -41,3 +41,12 @@ export const answer = (data) => async (dispatch) => {
         await dispatch({ type: "Answer", payload: 2 });
     }
 }
+
+export const updateUser = (detail) => async (dispatch) => {
+    try {
+        const newUserDetails = await api.updateUserDetails(detail);
+        await dispatch({ type: 'AUTH', data: newUserDetails.data });
+    } catch (error) {
+        console.log(error);
+    }
+}

@@ -11,8 +11,6 @@ const login = async (req, res) => {
             {
                 "$set": {
                     lastLogin: new Date(),
-                    name: data.name,
-                    photo: data.imageUrl
                 }
             },
             {
