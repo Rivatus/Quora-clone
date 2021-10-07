@@ -13,7 +13,7 @@ app.use("/api", route);
 const PORT = process.env.PORT || 5000;
 
 const CONNECTION_URL = "mongodb+srv://Rivatus:Test1234@cluster0.2s51y.mongodb.net/Database?retryWrites=true&w=majority";
-// Create your own mongodb database while working on the feature. 
+// Create your own mongodb database while working on the feature, so you have access to it.  
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`Server started on port ${PORT}`)))
