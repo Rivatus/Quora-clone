@@ -3,6 +3,7 @@ const question = require('../models/question.js');
 const users = require('../models/user.js');
 const login = async (req, res) => {
     const data = req.body;
+    console.log(data); 
     try {
         const user = await users.findOneAndUpdate(
             {
@@ -11,6 +12,8 @@ const login = async (req, res) => {
             {
                 "$set": {
                     lastLogin: new Date(),
+                    name: data.name,
+                    photo: data.imageUrl
                 }
             },
             {

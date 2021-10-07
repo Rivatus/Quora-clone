@@ -5,7 +5,7 @@ import quoraText from '../../Quora_text.PNG';
 import { useDispatch } from 'react-redux';
 import { authContext } from '../../App';
 function Navbar() {
-    const [user, setUser] = useContext(authContext);
+    const [user, setUser] = useContext(authContext);      // Some Error in this line. 
     const location = useLocation();
     const dispatch = useDispatch();
     useEffect(() => {

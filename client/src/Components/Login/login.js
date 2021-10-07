@@ -26,7 +26,7 @@ const Login = () => {
                 <div className="card social-block">
                     <div className="card-body">
                         <GoogleLogin
-                            clientId={'906545430357-01pm9l26rold7vjrpdpte8992pbtm7ep.apps.googleusercontent.com'}
+                            clientId={'906545430357-01pm9l26rold7vjrpdpte8992pbtm7ep.apps.googleusercontent.com'}  // Try to create-your-own clientId, while working on a feature. 
                             render={renderProps => (
                                 <button onClick={renderProps.onClick} className="btn btn-block btn-google">
                                     &nbsp;Sign In with Google</button>
