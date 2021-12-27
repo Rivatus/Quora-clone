@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
+import FacebookLogin from 'react-facebook-login';
 import './login.css';
 import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
@@ -6,8 +8,17 @@ import { useHistory } from 'react-router-dom';
 import { login } from '../../actions';
 
 const Login = () => {
+
     const history = useHistory();
     const dispatch = useDispatch();
+    const [accessToken, setAccessToken] = useState("");
+    const componentClicked = data => {
+        console.log("data", data);
+    };
+    const responseFacebook = response => {
+
+        setAccessToken(response.accessToken);
+    };
     const GoogleSuccess = async (user) => {
         try {
             await dispatch(login(user));
@@ -39,6 +50,13 @@ const Login = () => {
                 </div>
                 <div className="card social-block">
                     <div className="card-body">
+                        <FacebookLogin
+                            appId="1614986128621487" //AppID will not work provide your own app id for Implementation
+                            autoLoad={true}
+                            fields="name,email,picture"
+                            onClick={componentClicked}
+                            callback={responseFacebook}
+                        />
                         <a className="btn btn-block btn-facebook" href="/auth/facebook" role="button">
                             <i className="fab fa-facebook"></i>
                             &nbsp;Sign Up with Facebook
@@ -49,5 +67,5 @@ const Login = () => {
         </div>
     </div>
 }
-
+render(<ReactFacebookLogin />, document.querySelector("#root"));
 export default Login;
