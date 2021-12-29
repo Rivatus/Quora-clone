@@ -1,10 +1,14 @@
 import React from 'react';
 import './login.css';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../actions';
 
+const responseFacebook = (response) => {
+    console.log(response);
+}
 const Login = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -39,10 +43,17 @@ const Login = () => {
                 </div>
                 <div className="card social-block">
                     <div className="card-body">
-                        <a className="btn btn-block btn-facebook" href="/auth/facebook" role="button">
-                            <i className="fab fa-facebook"></i>
-                            &nbsp;Sign Up with Facebook
-                        </a>
+
+                        <FacebookLogin
+                            appId="1088597931155576"
+                            autoLoad
+                            callback={responseFacebook}
+                            render={renderProps => (
+                                <button onClick={renderProps.onClick} className="btn btn-block btn-facebook">
+                                    <i className="fab fa-facebook"></i>
+                                    &nbsp;Sign Up with Facebook
+                                </button>)}
+                        />
                     </div>
                 </div>
             </div>
