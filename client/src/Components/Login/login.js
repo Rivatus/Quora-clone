@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import FacebookLogin from 'react-facebook-login';
+import React from 'react';
 import './login.css';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../actions';
 
+const responseFacebook = (response) => {
+    console.log(response);
+}
 const Login = () => {
-
     const history = useHistory();
     const dispatch = useDispatch();
-    const [accessToken, setAccessToken] = useState("");
-    const componentClicked = data => {
-        console.log("data", data);
-    };
-    const responseFacebook = response => {
-
-        setAccessToken(response.accessToken);
-    };
     const GoogleSuccess = async (user) => {
         try {
             await dispatch(login(user));
@@ -50,22 +43,22 @@ const Login = () => {
                 </div>
                 <div className="card social-block">
                     <div className="card-body">
+
                         <FacebookLogin
-                            appId="1614986128621487" //AppID will not work provide your own app id for Implementation
-                            autoLoad={true}
-                            fields="name,email,picture"
-                            onClick={componentClicked}
+                            appId="1088597931155576"
+                            autoLoad
                             callback={responseFacebook}
+                            render={renderProps => (
+                                <button onClick={renderProps.onClick} className="btn btn-block btn-facebook">
+                                    <i className="fab fa-facebook"></i>
+                                    &nbsp;Sign Up with Facebook
+                                </button>)}
                         />
-                        <a className="btn btn-block btn-facebook" href="/auth/facebook" role="button">
-                            <i className="fab fa-facebook"></i>
-                            &nbsp;Sign Up with Facebook
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 }
-render(<ReactFacebookLogin />, document.querySelector("#root"));
+
 export default Login;
